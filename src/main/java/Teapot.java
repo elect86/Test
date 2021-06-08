@@ -47,6 +47,10 @@ public class Teapot {
     }
 
     public static void main(String[] args) {
+        System.out.println(System.getProperty("java.version"));
+        System.out.println(System.getProperty("java.library.path"));
+        System.setProperty("java.library.path", System.getProperty("java.library.path") + ":/usr/lib/x86_64-linux-gnu");
+        System.out.println(System.getProperty("java.library.path"));
         try (var scope = ResourceScope.newConfinedScope()) {
             var all = SegmentAllocator.ofScope(scope);
             var argc = all.allocate(C_INT, 0);
