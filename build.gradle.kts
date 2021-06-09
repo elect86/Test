@@ -26,8 +26,8 @@ tasks.withType<Test>().configureEach {
 }
 
 application {
-//    mainClass.set("MainKt")
-    mainClass.set("Teapot")
+    mainClass.set("MainKt")
+//    mainClass.set("Teapot")
     applicationDefaultJvmArgs += "-Djava.library.path=.:/usr/lib/x86_64-linux-gnu"
 }
 
@@ -38,6 +38,11 @@ tasks.withType<JavaExec>().configureEach {
 }
 
 tasks {
+
+    withType<JavaCompile>().configureEach {
+        options.isIncremental = false
+//        options.
+    }
 
     jextract {
 
