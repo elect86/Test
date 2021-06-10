@@ -1,12 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="MainKt" type="JetRunConfigurationType" nameIsGenerated="true">
-    <envs>
-      <env name="--illegal-access" value="permit -Dkotlin.daemon.jvm.options=&quot;--illegal-access=permit&quot;" />
-    </envs>
     <option name="MAIN_CLASS_NAME" value="MainKt" />
     <module name="test.main" />
-    <option name="PROGRAM_PARAMETERS" value="--illegal-access=permit -Dkotlin.daemon.jvm.options=&quot;--illegal-access=permit&quot;" />
-    <option name="VM_PARAMETERS" value="--add-modules jdk.incubator.foreign -Djava.library.path=.:/usr/lib/x86_64-linux-gnu --enable-native-access=ALL-UNNAMED --illegal-access=permit -Dkotlin.daemon.jvm.options=&quot;--illegal-access=permit&quot;" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

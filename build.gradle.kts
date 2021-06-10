@@ -44,16 +44,6 @@ tasks {
 //        options.
     }
 
-    compileJava {
-//        inputs.property("moduleName", moduleName)
-        doFirst {
-            options.compilerArgs = options.compilerArgs + listOf(
-                "--add-modules", "jdk.incubator.foreign")
-//            classpath = files()
-        }
-    }
-
-
     jextract {
 
         header("/usr/include/GL/glut.h") {
