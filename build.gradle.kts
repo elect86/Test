@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `java-library`
@@ -27,22 +28,22 @@ tasks.withType<Test>().configureEach {
 
 application {
     mainClass.set("MainKt")
-//    mainClass.set("Teapot")
+    mainClass.set("Teapot")
     applicationDefaultJvmArgs += "-Djava.library.path=.:/usr/lib/x86_64-linux-gnu"
 }
 
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-
-tasks.withType<JavaExec>().configureEach {
-    javaLauncher.set(javaToolchains.launcherFor(java.toolchain))
-}
+//java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+//
+//tasks.withType<JavaExec>().configureEach {
+//    javaLauncher.set(javaToolchains.launcherFor(java.toolchain))
+//}
 
 tasks {
 
     withType<JavaCompile>().configureEach {
         options.isIncremental = false
-//        options.
     }
+
 
     jextract {
 
@@ -61,3 +62,10 @@ tasks {
     }
 }
 //println(project.properties["org.gradle.java.installations.paths"])
+
+tasks.withType<KotlinCompile>().configureEach {
+    kotlinOptions {
+        verbose = true
+//        freeCompilerArgs = listOf("--add-modules", "jdk.incubator.foreign")
+    }
+}

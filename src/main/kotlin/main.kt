@@ -8,7 +8,7 @@ import jdk.incubator.foreign.ResourceScope
 //import java.nio.charset.Charset
 
 fun main() {
-    println( System.getProperty("java.version"))
+    println(System.getProperty("java.version"))
 }
 
 //fun test() {
