@@ -1,3 +1,5 @@
+package core
+
 //import jdk.incubator.foreign.*
 //import jdk.incubator.foreign.CLinker.*
 //import jdk.incubator.foreign.MemoryLayouts.JAVA_INT

@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
     `java-library`
@@ -6,6 +7,8 @@ plugins {
     application
     id("elect86.jextract") //version "0.1.6"
 //    id("io.github.krakowski.jextract") version "0.1.6"
+    idea
+    id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
 group = "org.example"
@@ -32,11 +35,11 @@ application {
     applicationDefaultJvmArgs += "-Djava.library.path=.:/usr/lib/x86_64-linux-gnu"
 }
 
-//java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-//
-//tasks.withType<JavaExec>().configureEach {
-//    javaLauncher.set(javaToolchains.launcherFor(java.toolchain))
-//}
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+
+tasks.withType<JavaExec>().configureEach {
+    javaLauncher.set(javaToolchains.launcherFor(java.toolchain))
+}
 
 tasks {
 
@@ -44,8 +47,13 @@ tasks {
         options.isIncremental = false
     }
 
-
     jextract {
+
+        jdk {
+
+        }
+
+
 
         header("/usr/include/GL/glut.h") {
             // The library name
@@ -56,9 +64,16 @@ tasks {
 
             includes.add("/usr/lib/x86_64-linux-gnu")
 
+            sourceMode.set(true)
             // The generated class name
 //            className = 'Linux'
         }
+    }
+
+    register<ShadowJar>("testJar") {
+        archiveClassifier.set("tests")
+        from(sourceSets.test.get().output)
+        configurations.add(project.configurations.testImplementation.get())
     }
 }
 //println(project.properties["org.gradle.java.installations.paths"])
