@@ -3,6 +3,7 @@
     <option name="MAIN_CLASS_NAME" value="core.MainKt" />
     <module name="test.main" />
     <shortenClasspath name="NONE" />
+    <option name="VM_PARAMETERS" value="--add-modules jdk.incubator.foreign -Djava.library.path=.:/usr/lib/x86_64-linux-gnu --enable-native-access=ALL-UNNAMED" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

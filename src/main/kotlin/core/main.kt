@@ -1,9 +1,9 @@
 package core
 
-//import jdk.incubator.foreign.*
-//import jdk.incubator.foreign.CLinker.*
-//import jdk.incubator.foreign.MemoryLayouts.JAVA_INT
-//import jdk.incubator.foreign.ResourceScope
+import jdk.incubator.foreign.*
+import jdk.incubator.foreign.CLinker.*
+import jdk.incubator.foreign.MemoryLayouts.JAVA_INT
+import jdk.incubator.foreign.ResourceScope
 ////import jdk.internal.foreign.ResourceScopeImpl
 //import java.lang.invoke.MethodType
 //import java.lang.ref.Cleaner

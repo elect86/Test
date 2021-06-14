@@ -42,7 +42,7 @@ public class Teapot {
     }
 
     void onIdle() {
-        rot += 0.1;
+        rot += 1;
         glutPostRedisplay();
     }
 
@@ -63,8 +63,6 @@ public class Teapot {
             var displayStub = CLinker.getInstance().upcallStub(displayHandle, FunctionDescriptor.ofVoid(), scope);
             var idleHandle = MethodHandles.lookup().bind(teapot, "onIdle", MethodType.methodType(void.class));
             var idleStub = CLinker.getInstance().upcallStub(idleHandle, FunctionDescriptor.ofVoid(), scope);
-//            var displayStub = glutDisplayFunc$func.allocate(teapot::display, scope);
-//            var idleStub = glutIdleFunc$func.allocate(teapot::onIdle, scope);
             glutDisplayFunc(displayStub);
             glutIdleFunc(idleStub);
             glutMainLoop();
